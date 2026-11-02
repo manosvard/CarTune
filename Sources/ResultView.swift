@@ -10,6 +10,14 @@ struct ResultView: View {
             ScrollView {
                 VStack(spacing: 16) {
                     summary
+                    NavigationLink {
+                        AIView(carName: carName, plan: plan)
+                    } label: {
+                        Label("Live AI ανάλυση με internet", systemImage: "sparkles")
+                            .font(.headline).frame(maxWidth: .infinity).padding(.vertical, 8)
+                    }
+                    .buttonStyle(.glassProminent)
+                    .tint(.purple)
                     if !plan.warnings.isEmpty { warnings }
                     if !plan.upgrades.isEmpty {
                         sectionTitle("Αναβαθμίσεις ισχύος", "bolt.fill")
