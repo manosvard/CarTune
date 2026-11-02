@@ -8,6 +8,10 @@ jobs:
     runs-on: macos-26
     steps:
       - uses: actions/checkout@v4
+      - name: Generate app icon
+        run: |
+          pip3 install pillow --break-system-packages || pip3 install pillow
+          python3 make_icon.py
       - name: Install XcodeGen
         run: brew install xcodegen
       - name: Generate project
